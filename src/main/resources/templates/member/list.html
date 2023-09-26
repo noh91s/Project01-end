@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/baselayout}"
+>
+<th:block layout:fragment="title">
+    <title>회원 : 목록</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</th:block>
+<th:block layout:fragment="script">
+    <!--  <script th:src="${/js/index.js}"></script>-->
+</th:block>
+<th:block layout:fragment="container">
+    <div class="memberlist">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="9">
+                    현재로그인 사용자 : <span th:text="${myUserDetails.memberEntity.email}"></span>
+                    권한 : <span th:text="${myUserDetails.memberEntity.role}"></span>
+                </th>
+            </tr>
+            <tr>
+                <th>회원번호</th>
+                <th>이메일</th>
+                <th>이름</th>
+                <th>전화번호</th>
+<!--                <th>주소</th>-->
+                <th>권한</th>
+                <th>작성시간</th>
+                <th>수정시간</th>
+                <th>상세보기</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member :${memberList}">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.email}"></td>
+                <td th:text="${member.nickName}"></td>
+                <td th:text="${member.phone}"></td>
+<!--                <td th:text="${member.address}">Opions</td>-->
+                <td th:text="${member.role}"></td>
+                <td th:text="${#temporals.format(member.createTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td th:text="${#temporals.format(member.updateTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td><a th:href="@{/member/detail/{id}(id=${member.id})}">상세보기</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</th:block>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<div class="header" th:fragment="adminHeaderFragment">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <div class="header">
+        <div class="top-header">
+            <div class="top-menu">
+                <h1 class="logo">
+                    <a th:href="@{/}"><img th:src="@{/images/logo.png}" alt="logo"></a>
+                </h1>
+
+                <div class="top-right-menu">
+                    <ul>
+                        <th:block sec:authorize="isAnonymous()">
+                            <li><a th:href="@{/member/join}">join</a></li>
+                            <li><a th:href="@{/member/login}">login</a></li>
+                        </th:block>
+                        <th:block sec:authorize="hasAnyRole('ADMIN','MEMBER')">
+                            <li>
+                                <span> 관리자님</span>
+                            </li>
+                            <li>
+                                <a th:href="@{/member/logout}">logout</a>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,163 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/adminHeader.css);
+@import url(/css/admin/common/menu.css);
+
+.admin-page{
+    display: flex;
+}
+
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.create{
+    flex-basis: 800px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 100px 0;
+    box-sizing: border-box;
+}
+
+/* title */
+.create .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create .title h1.title{
+    font-size: 32px;
+    font-family: 'Kanit', sans-serif;
+}
+
+/* create-page */
+.create .create-page{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+table.category{
+    box-sizing: border-box;
+    width: 800px;
+    border: 1px solid #e1e2e4;
+    padding: 20px;
+}
+
+table.category th {
+    padding: 20px 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+
+    display: flex;
+    justify-content: start;
+
+}
+
+table.category td{
+    width: 85%;
+}
+
+table.item-create{
+    box-sizing: border-box;
+    width: 800px;
+    border: 1px solid #e1e2e4;
+    padding: 20px;
+}
+
+table.item-create th{
+    padding: 25px 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+
+    display: flex;
+    justify-content: start;
+}
+
+table.item-create td{
+    width: auto;
+}
+
+.td1{
+    width: 80%;
+    height: 30px;
+    font-size: 16px;
+    border: 1px solid #e1e2e4;
+    background-color: #F5F6F8;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-align: left;
+}
+
+.td2{
+    padding: 8px;
+    cursor: pointer;
+}
+
+.td3{
+    width: 35%;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid #e1e2e4;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-align: left;
+}
+
+.td4, .th4{
+    border-top: 1px solid #e1e2e4;
+    padding: 30px 20px;
+    text-align: right;
+}
+
+.td5{
+    width: 95%;
+    height: 30px;
+    font-size: 16px;
+    border: 1px solid #e1e2e4;
+    background-color: #F5F6F8;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-align: left;
+}
+
+input#file-upload-button{
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.td4 a{
+    padding: 10px 50px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #205295;
+    border: 1px solid #205295;
+    background-color: #fff;
+    box-sizing: border-box;
+    }
+
+.item-submit{
+    padding: 10px 50px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #205295;
+    border: 1px solid #205295;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.item-submit:hover{
+    color: #fff;
+    background-color: #205295;
+    box-sizing: border-box;
+}

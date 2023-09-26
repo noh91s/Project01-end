@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/adminlayout}"
+>
+<th:block layout:fragment="title">
+    <title> 관리자 : 게시판 관리</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/admin/board/list.css}">
+</th:block>
+
+<th:block layout:fragment="admin-con">
+       <div class="admin-con">
+           <div class="user-con">
+               <div class="admin-con-title">
+                   <h1 class="title">게시판 관리</h1>
+               </div>
+               <div class="admin-con-search">
+                   <form th:action="@{/admin/board}" method="get">
+                       <select name="subject" id="subject">
+                           <option value="name">상품명</option>
+                           <option value="category">카테고리</option>
+                       </select>
+                       <input type="text" name="search" id="search">
+                       <input type="submit" value="검색">
+                   </form>
+               </div>
+               <div class="admin-con-list">
+                   <div class="admin-con-table">
+                       <table border="1">
+                           <thead>
+                               <tr>
+                                   <th>게시글번호</th>
+                                   <th>제목</th>
+                                   <th>작성자</th>
+                                   <th>조회수</th>
+                                   <th>상세보기</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr th:each="item : ${result}">
+                                   <td th:text="${item.id}"></td>
+                                   <td th:text="${item.title}"></td>
+                                   <td th:text="${item.writer}"></td>
+                                   <td th:text="${item.hit}"></td>
+                                   <td><a th:href="@{/admin/board/{id}(id=${item.id})}">보기</a></td>
+                               </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+<!--               <button type="button" th:onclick="|location.href='@{/admin/board/create}'|">상품등록</button>-->
+               <div class="paging">
+                   <ul>
+                       <li th:each="i: ${#numbers.sequence(startPage, endPage)}" class="block">
+                           <span th:if="${i==result.pageable.pageNumber+1}" th:text="${i}" class="now"> </span>
+                           <a th:unless="${i==result.pageable.pageNumber+1}"
+                              th:href="@{/admin/item(subject=${subject},search=${search},page=${i-1},size=${pSize})}" th:text="${i}"></a>
+                       </li>
+                   </ul>
+               </div>
+
+           </div>
+       </div>
+</th:block>
+</html>

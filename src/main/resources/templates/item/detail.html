@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/baselayout}"
+>
+<th:block layout:fragment="title">
+    <title>상품 : 상세</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/item/detail.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</th:block>
+<th:block layout:fragment="script">
+    <script th:src="@{/js/item/size.js}"></script>
+</th:block>
+<th:block layout:fragment="container">
+
+    <div class="container">
+        <div class="detail">
+            <div class="detail-con">
+                <div class="right-con">
+                    <div th:if="${item.isFile}==1">
+                        <img th:src="@{/files/} + ${item.saveName}" alt="상품 이미지">
+                    </div>
+                    <div th:unless="${item.isFile}==1">
+                        <img th:src="@{https://placehold.co/300x400?text=No\nImage}" alt="이미지 오류">
+                    </div>
+                </div>
+                <div class="left-con">
+                    <ul>
+                        <li>
+                            <span th:text="'#' + ${item.category}" class="span-category"></span>
+                        </li>
+                        <li>
+                            <span th:text="${item.name}" class="span-name"></span>
+                        </li>
+                        <li>
+                            <span th:text="${item.detail}" class="span-detail"></span>
+                        </li>
+                        <li class="li-price">
+                            <span th:text="${#numbers.formatInteger(item.price, 3, 'COMMA') + '원'}"
+                                  class="span-price"></span>
+                        </li>
+                        <li class="size">
+                            <form th:action="@{/cart/add}" method="post" th:object="${wishlistDto}">
+                                <ul>
+                                    <li class="count">
+                                        <label for="size" class="count">개수를 선택하세요</label>
+                                        <span class="left-btn" onclick="count('minus')"><img
+                                                th:src="@{/images/index/left.png}" alt="left"></span>
+                                        <input type="text" id="size" name="size" value="1">
+                                        <span class="right-btn" onclick="count('plus')"><img
+                                                th:src="@{/images/index/right.png}" alt="right"></span>
+                                    </li>
+                                    <li>
+                                        <input type="hidden" th:value="${item.id}" name="id">
+                                    </li>
+                                    <li>
+                                        <input type="submit" value="장바구니추가" class="input-submit">
+                                    </li>
+                                </ul>
+                            </form>
+                        </li>
+                        <button>
+                            <a th:href="@{/item/list}">목록으로 돌아가기</a>
+                        </button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

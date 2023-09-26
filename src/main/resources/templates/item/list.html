@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/baselayout}"
+>
+<th:block layout:fragment="title">
+    <title>상품 : 목록</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/item/list.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</th:block>
+<th:block layout:fragment="container">
+
+    <div class="container">
+        <div class="item">
+            <div class="category">
+                <div class="category-nav">
+                    <div class="btn-con">
+                        <span class="left-btn" id="preBtn"><img th:src="@{/images/index/left.png}" alt="left"></span>
+                    </div>
+                    <div class="category-menu" id="slider-container">
+                        <ul id="slider">
+                            <li>
+                                <img th:src="@{/images/index/lego_head_01.png}" alt="lego_head_01">
+                                <a th:href="@{/item/list}">전체상품</a>
+                            </li>
+                            <th:block th:each="category: ${categoryList}">
+                                <li>
+                                    <img th:src="@{/images/index/lego_head_02.png}" alt="lego_head_02">
+                                    <a th:href="@{/item/list?subject=category&search={category}(category=${category.categories})}"
+                                       th:text="${category.categories}"></a>
+                                </li>
+                            </th:block>
+                        </ul>
+                    </div>
+                    <div class="btn-con">
+                        <span class="right-btn" id="nextBtn"><img th:src="@{/images/index/right.png}" alt="right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-divide">
+                <hr class="divide">
+            </div>
+            <div class="item-divide2">
+            <div class="search">
+                <form th:action="@{/item/search}" method="GET">
+                    <select name="subject" id="subject">
+                        <option value="name">상품명</option>
+                        <option value="category">분류</option>
+                        <option value="detail">상세정보</option>
+                    </select>
+                    <input type="text" name="search" id="search" th:value="${param.search}">
+                    <input type="submit" value="검색">
+                </form>
+            </div>
+<!--            <th:block sec:authorize="hasAnyRole('ADMIN')">-->
+<!--                <div class="create">-->
+<!--                    <li><a th:href="@{/item/create}">상품등록</a></li>-->
+<!--                </div>-->
+<!--            </th:block>-->
+            </div>
+            <div class="item-list">
+                <ul>
+                    <th:block th:each="item: ${itemList}">
+                        <li>
+                            <div class="top-con">
+                                <a th:href="@{/item/detail(id=${item.id})}">
+                                    <th:block th:if="${item.isFile==1}">
+                                        <img th:src="@{/files/} + ${item.saveName}" alt="상품 이미지">
+                                    </th:block>
+                                    <th:block th:unless="${item.isFile==1}">
+                                        <img th:src="@{https://placehold.co/300x400?text=No\nImage}" alt="이미지 오류">
+                                    </th:block>
+                                </a>
+                            </div>
+                            <div class="bottom-con">
+                                <ul>
+                                    <li><a th:href="@{/item/detail(id=${item.id})}"><span th:text="${item.name}" class="name"></span></a></li>
+                                    <li><span th:text="${item.detail}" class="detail"></span></li>
+                                    <li class="li-price">
+                                        <span th:text="${#numbers.formatInteger(item.price, 3, 'COMMA') + '원'}" class="span-price"></span>
+                                    </li>
+                                    <li>
+                                        <form th:action="@{/cart/add}" method="post" th:object="${wishlistDto}">
+                                            <ul>
+                                                <li>
+                                                    <input type="hidden" name="size" id="size" value="1">
+                                                </li>
+                                                <li>
+                                                    <input type="hidden" th:value="${item.id}" name="id">
+                                                </li>
+                                                <li>
+                                                    <input type="submit" value="Add to Cart"  class="input-submit">
+                                                </li>
+                                            </ul>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </th:block>
+                </ul>
+            </div>
+            <div class="paging">
+                <ul>
+                    <li>
+                        <span th:if="${1==itemList.pageable.pageNumber+1}" class="page0">First</span>
+                        <span th:unless="${1==itemList.pageable.pageNumber+1}">
+                    <a th:href="@{/item/list(subject=${subject},search=${search},page=0,size=${pSize})}" class="page1">First</a>
+                  </span>
+                    </li>
+                    <li>
+                        <span th:if="${1==itemList.pageable.pageNumber+1}" class="page0">Pre</span>
+                        <span th:unless="${1==itemList.pageable.pageNumber+1}">
+                    <a th:href="@{/item/list(subject=${subject},search=${search},page=${itemList.pageable.pageNumber-1},size=${pSize})}" class="page1">Pre</a>
+                  </span>
+                    </li>
+                    <li th:each="i: ${#numbers.sequence(startPage, endPage)}" class="block">
+                        <span th:if="${i==itemList.pageable.pageNumber+1}" th:text="${i}" class="now"> </span>
+                        <a th:unless="${i==itemList.pageable.pageNumber+1}"
+                           th:href="@{/item/list(subject=${subject},search=${search},page=${i-1},size=${pSize})}" th:text="${i}"></a>
+                    </li>
+                    <li>
+                        <span th:if="${itemList.totalPages==itemList.pageable.pageNumber+1}" class="page0">Next</span>
+                        <span th:unless="${itemList.totalPages==itemList.pageable.pageNumber+1}">
+                    <a th:href="@{/item/list(subject=${subject},search=${search},page=${itemList.pageable.pageNumber+1},size=${pSize})}" class="page1">Next</a>
+                  </span>
+                    </li>
+                    <li>
+                        <span th:if="${itemList.totalPages==itemList.pageable.pageNumber+1}" class="page0">Last</span>
+                        <span th:unless="${itemList.totalPages==itemList.pageable.pageNumber+1}">
+                    <a th:href="@{/item/list(subject=${subject},search=${search},page=${itemList.totalPages-1},size=${pSize})}" class="page1">Last</a>
+                  </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+</th:block>
+<th:block layout:fragment="script">
+      <script th:src="@{/js/item/list.js}"></script>
+</th:block>
+</html>

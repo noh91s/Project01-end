@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/baselayout}"
+>
+<th:block layout:fragment="title">
+    <title>게시판 : 목록</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/board/list.css}">
+</th:block>
+<th:block layout:fragment="script">
+    <!--  <script th:src="${/js/index.js}"></script>-->
+</th:block>
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="board-con">
+            <div class="board-title">
+                <h1>Posts</h1>
+                <h2>이곳에서 자유롭게 이야기하세요.</h2>
+            </div>
+            <div class="board-menu">
+                <div class="search">
+                    <form th:action="@{/board/search}" method="GET">
+                        <select name="subject" id="subject">
+                            <option value="title">글제목</option>
+                            <option value="content">글내용</option>
+                            <option value="writer">글쓴이</option>
+                        </select>
+                        <input type="text" name="search" id="search" th:value="${param.search}">
+                        <input type="submit" value="검색" class="input2">
+                    </form>
+                </div>
+                <div class="move-write">
+                    <li><a th:href="@{/board/write}">글쓰기</a></li>
+                </div>
+            </div>
+            <div class="board-list">
+                <div class="board-list-con">
+                    <table border="1">
+                        <thead>
+                        <tr>
+                            <th class="th1">글번호</th>
+                            <th class="th2">글제목</th>
+                            <th class="th3">글쓴이</th>
+                            <th class="th4">작성시간</th>
+                            <th class="th5">조회수</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="board :${boardList}">
+                            <td th:text="${board.id}">Opions</td>
+                            <td class="td-title">
+                                <div>
+                                <span th:if="${board.isFile==1}"><img th:src="@{/images/board/file.png}"
+                                                                      alt="file"></span>
+                                <span>
+                                <a th:href="@{/board/detail/{id}(id=${board.id})}" th:text="${board.title}"></a>
+                                </span>
+                                </div>
+                            </td>
+                            <td th:text="${board.writer}">Opions</td>
+                            <td th:text="${#temporals.format(board.createTime, 'yyyy-MM-dd HH:mm:ss')}">Opions</td>
+                            <td class="td-view"><span><img th:src="@{/images/board/view.png}" alt="view"></span><span
+                                    th:text="${board.hit}"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--                <div class="page">-->
+                <!--                    <form th:action="@{/board/page}" method="POST">-->
+                <!--                        <select name="size" id="size">-->
+                <!--                            <option value="5">5</option>-->
+                <!--                            <option value="10">10</option>-->
+                <!--                            <option value="20">20</option>-->
+                <!--                        </select>-->
+                <!--                        <input type="submit" value="게시글수" class="input2">-->
+                <!--                    </form>-->
+                <!--                </div>-->
+            </div>
+            <div class="board-paging-con">
+                <div class="paging">
+                    <ul>
+                        <li>
+                            <span th:if="${1==boardList.pageable.pageNumber+1}" class="span0">First</span>
+                            <span th:unless="${1==boardList.pageable.pageNumber+1}">
+            <a th:href="@{/board/list(subject=${subject},search=${search},page=0,size=${pSize})}" class="span1">First</a>
+          </span>
+                        </li>
+                        <li>
+                            <span th:if="${1==boardList.pageable.pageNumber+1}" class="span0">Pre</span>
+                            <span th:unless="${1==boardList.pageable.pageNumber+1}">
+            <a th:href="@{/board/list(subject=${subject},search=${search},page=${boardList.pageable.pageNumber-1},size=${pSize})}"
+               class="span1">Pre</a>
+          </span>
+                        </li>
+                        <li th:each="i: ${#numbers.sequence(startPage, endPage)}" class="block">
+                            <span th:if="${i==boardList.pageable.pageNumber+1}" th:text="${i}" class="now"> </span>
+                            <a th:unless="${i==boardList.pageable.pageNumber+1}"
+                               th:href="@{/board/list(subject=${subject},search=${search},page=${i-1},size=${pSize})}"
+                               th:text="${i}"></a>
+                        </li>
+                        <li>
+                                <span th:if="${boardList.totalPages==boardList.pageable.pageNumber+1}"
+                                      class="span0">Next</span>
+                            <span th:unless="${boardList.totalPages==boardList.pageable.pageNumber+1}">
+            <a th:href="@{/board/list(subject=${subject},search=${search},page=${boardList.pageable.pageNumber+1},size=${pSize})}"
+               class="span1">Next</a>
+          </span>
+                        </li>
+                        <li>
+                                <span th:if="${boardList.totalPages==boardList.pageable.pageNumber+1}"
+                                      class="span0">Last</span>
+                            <span th:unless="${boardList.totalPages==boardList.pageable.pageNumber+1}">
+            <a th:href="@{/board/list(subject=${subject},search=${search},page=${boardList.totalPages-1},size=${pSize})}"
+               class="span1">Last</a>
+          </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

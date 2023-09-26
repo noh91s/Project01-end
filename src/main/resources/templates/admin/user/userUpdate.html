@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/adminlayout}"
+>
+<th:block layout:fragment="title">
+    <title>관리자 : 사용자 수정</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/admin/userUpdate.css}">
+</th:block>
+<th:block layout:fragment="script">
+<!--    <script th:src="@{/js/home/admin.js}" defer></script>-->
+</th:block>
+<th:block layout:fragment="admin-con">
+       <div class="admin-con">
+           <div class="user-con">
+               <div class="admin-con-title">
+                   <h1 class="title">사용자 관리</h1>
+               </div>
+               <form th:action="@{/admin/userUpdate}" method="post" class="admin-con-list"><input type="hidden" name="id" th:value="${member.id}">
+                   <div class="admin-con-table">
+                       <table>
+                           <tr>
+                               <th scope="row">아이디</th>
+                               <td><input type="text" th:value="${member.id}" class="data" readonly></td>
+                           </tr>
+                           <tr>
+                               <th scope="row">이름</th>
+                               <td><input type="text" name="nickName" th:value="${member.nickName}" id="nickName" class="data"></td>
+                           </tr>
+                           <tr>
+                               <th scope="row">이메일</th>
+                               <td><input type="text" name="email" th:value="${member.email}" id="email" class="data" readonly></td>
+                           </tr>
+                           <tr>
+                               <th scope="row">권한</th>
+                               <td>
+                                   <select name="role" id="role">
+                                       <option value="ADMIN">관리자(ADMIN)</option>
+                                       <option value="MEMBER">일반회원(MEMBER)</option>
+                                   </select>
+                               </td>
+                           </tr>
+                           <tr>
+                               <th scope="row">전화번호</th>
+                               <td><input type="text" name="phone" th:value="${member.phone}" id="phone" class="data"></td>
+                           </tr>
+                       </table>
+                       <div class="detail-profile-menu">
+                           <ul>
+                               <li><input type="submit" value="회원수정"></li>
+                               <li><a th:href="@{/admin/userDetail/{id}(id=${member.id})}">돌아가기</a></li>
+                           </ul>
+                       </div>
+                   </div>
+                </form>
+           </div>
+       </div>
+</th:block>
+</html>

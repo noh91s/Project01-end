@@ -1,0 +1,348 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.board-con{
+    flex-basis: 1600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 100px;
+    padding: 100px 200px;
+    box-sizing: border-box;
+}
+
+/* board-title */
+.board-con .board-title{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.board-con .board-title h1{
+    font-size: 38px;
+    color: #bb2525;
+    text-shadow: 2px 2px 0px #fff, 4px 4px 0px #bb2525;
+}
+
+.board-con .board-title h2{
+    font-size: 24px;
+    color: #0A2647;
+}
+
+/* board-menu */
+.board-con .board-menu{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.board-con .board-menu .search{
+    display: flex;
+    align-items: center;
+}
+
+.board-con .board-menu .search select{
+    border: 1px solid #ccc;
+    padding: 6px;
+    line-height: 18px;
+    box-sizing: border-box;
+}
+
+.board-con .board-menu .search input{
+    border: 1px solid #ccc;
+    padding: 6px;
+    line-height: 18px;
+    box-sizing: border-box;
+}
+
+.board-con .board-menu .search input.input2{
+    color: #222;
+    text-align: center;
+    font-size: 13px;
+    line-height: 21px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 15px;
+    box-sizing: border-box;
+}
+
+.board-con .board-menu .search input.input2:hover{
+    background-color: #dfdfdf;
+}
+
+.board-con .board-menu .move-write{
+    display: flex;
+    align-items: center;
+}
+
+.board-con .board-menu .move-write li{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.board-con .board-menu .move-write li a{
+    padding: 7px 10px;
+    background-color: #fff;
+    color: #0A2647;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #0A2647;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.board-con .board-menu .move-write li a:hover{
+    background-color: #0A2647;
+    color: #fff;
+}
+
+/* board-list */
+.board-con .board-list{
+    width: 100%;
+    flex-basis: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+.board-con .board-list .board-list-con{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+/* table */
+table {
+    width: 100%;
+    height: auto;
+    border: 1px #E5E5E5 solid;
+    font-size: .9em;
+    box-shadow: 0 2px 5px rgba(0,0,0,.25);
+    border-collapse: collapse;
+    border-radius: 5px;
+
+    table-layout: fixed;
+    white-space: nowrap;
+  }
+
+th {
+    text-align: center;
+    background: #0A2647;
+    color: #fff;
+}
+
+td, th {
+    padding: 1em .5em;
+    vertical-align: middle;
+
+}
+
+td {
+    background: #fff;
+    overflow: hidden;
+}
+
+.th1{
+    width: 10%;
+}
+
+.th2{
+    width: 50%;
+}
+
+.th3{
+    width: 10%;
+}
+
+.th4{
+    width: 20%;
+}
+
+.th5{
+    width: 10%;
+}
+
+td{
+    text-align: center;
+}
+
+td.td-title{
+    text-align: left;
+    padding: 0 0 0 20px;
+    box-sizing: border-box;
+}
+
+td.td-title div{
+    display: flex;
+    align-items: center;
+}
+
+td.td-title a{
+    color: #0A2647;
+}
+
+td.td-title span img{
+    height: 12px;
+    width: 12px;
+    padding: 0 10px 0 0;
+}
+
+td.td-title a:hover{
+    text-decoration: underline;
+}
+
+td.td-view{
+    border: 1px #E5E5E5 solid;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+td.td-view span img{
+    width: 24px;
+    height: 24px;
+}
+
+.board-con .board-list .page{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.board-con .board-list .page select{
+    border: 1px solid #ccc;
+    padding: 6px;
+    line-height: 18px;
+    box-sizing: border-box;
+}
+
+.board-con .board-list .page input{
+    border: 1px solid #ccc;
+    padding: 6px;
+    line-height: 18px;
+    box-sizing: border-box;
+}
+
+.board-con .board-list .page input.input2{
+
+    color: #222;
+    text-align: center;
+    font-size: 13px;
+    line-height: 21px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 15px;
+    box-sizing: border-box;
+}
+
+.board-con .board-list .page input.input2:hover{
+    background-color: #dfdfdf;
+}
+
+
+
+/* paging */
+.paging{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.paging >ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.paging >ul >li a{
+    background-color: #fff;
+    color: #2C74B3;
+    border: 1px solid #ECEDF0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 50px;
+    display: flex;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kanit', sans-serif;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+
+.paging >ul >li .span0{
+    background-color: #fff;
+    color: #2C74B3;
+    box-shadow: inset 0px 0px 8px 0px #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 50px;
+    display: flex;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kanit', sans-serif;
+}
+
+.paging >ul >li .now{
+    background-color: #fff;
+    color: #2C74B3;
+    box-shadow: inset 0px 0px 8px 0px #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 50px;
+    display: flex;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kanit', sans-serif;
+    position:relative;
+    cursor:pointer;
+}
+
+.paging >ul >li a:hover{
+    box-shadow: inset 0px 0px 8px 0px #ccc;
+    box-sizing: border-box;
+}
+
+.paging >ul >li .now::after{
+    content: "현재페이지";
+    font-size: 12px;
+    width: 150px;
+    color: #8a8e99;
+    background-color: #ffffff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -25px;
+    visibility: hidden;
+    font-family: 'Kanit', sans-serif;
+}
+
+.paging >ul >li .now:hover::after{
+    visibility: visible;
+}

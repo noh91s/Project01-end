@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/baselayout}"
+>
+<th:block layout:fragment="title">
+    <title>회원 : 상세보기</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/member/detail.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+</th:block>
+<th:block layout:fragment="script">
+    <!--  <script th:src="${/js/index.js}"></script>-->
+</th:block>
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="detail">
+            <div class="detail-menu">
+                <div class="title">
+                    <h1 class="title">Profile</h1>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a th:href="@{/member/detail/{id}(id=${#authentication.principal.memberEntity.id})}">Profile</a></li>
+                        <li><a th:href="@{/cart/list}">Wish List</a></li>
+                        <li><a th:href="@{/board/search/{id}(id=${#authentication.principal.memberEntity.id})}">My Posts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="detail-divide">
+                <hr class="divide">
+            </div>
+            <div class="detail-profile">
+                    <table>
+                        <tr>
+                            <th scope="row"><span>아이디</span> <span><img th:src="@{/images/member/asterisk.png}" alt="asterisk.png"></span></th>
+                            <td><span th:text="${member.id}" class="data"></span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span>이메일</span><span><img th:src="@{/images/member/asterisk.png}" alt="asterisk.png"></span> </th>
+                            <td><span th:text="${member.email}" class="data"></span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span>이름</span><span><img th:src="@{/images/member/asterisk.png}" alt="asterisk.png"></span></th>
+                            <td><span th:text="${member.nickName}" class="data"></span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">전화번호</th>
+                            <td><span th:text="${member.phone}" class="data"></span></td>
+                        </tr>
+                    </table>
+            </div>
+            <div class="move-link">
+                <ul>
+                    <li><a th:href="@{/member/update/{id}(id=${member.id})}">회원 수정</a></li>
+                    <li><a th:href="@{/member/delete/{id}(id=${member.id})}">회원 탈퇴</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

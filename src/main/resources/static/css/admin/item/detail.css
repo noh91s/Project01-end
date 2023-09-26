@@ -1,0 +1,160 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/adminHeader.css);
+@import url(/css/admin/common/menu.css);
+
+.admin-page{
+    display: flex;
+}
+
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detail{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 100px 0 0 0;
+    box-sizing: border-box;
+}
+
+.detail .detail-con{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-basis: 1000px;
+}
+
+.detail .right-con img{
+    width: 300px;
+    height: 400px;
+    display: block;
+}
+
+.detail .left-con{
+    flex-basis: 500px;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.detail .left-con ul{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detail .left-con ul li{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.detail .left-con ul li span.span-category{
+    padding: 2px 10px;
+    background-color: #d7d7d7;
+    border-radius: 30px;
+    color: #fff;
+}
+
+.detail .left-con ul li span.span-name{
+    font-size: 32px;
+    font-weight: bold;
+    color: #222;
+}
+
+.detail .left-con ul li span.span-detail{
+    font-size: 24px;
+    color: #222;
+}
+
+.detail .left-con ul li.li-price{
+    padding: 100px 0 0 0;
+}
+
+.detail .left-con ul li.li-price span.span-price{
+    font-size: 24px;
+    color: #222;
+    font-weight: bolder;
+}
+
+/* size */
+
+.detail .left-con ul li.size form >ul >li.count{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.detail .left-con ul li.size form >ul >li.count span img{
+    width: 15px;
+    height: 15px;
+    display: block;
+}
+
+.detail .left-con ul li.size form >ul >li.count input{
+    border: none;
+    text-align: center;
+    width: 20px;
+}
+
+
+
+
+
+
+.detail .left-con ul li label.count{
+
+    color: #222;
+}
+
+.detail .detail ul li select{
+    border: 1px solid #ccc;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+.detail .left-con ul li div{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.detail .left-con ul li div div.input-submit{
+    width: 100%;
+    background: #fe923a;
+    border: 2px solid #fe923a;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+.detail .left-con ul li div div.input-submit:hover{
+    width: 100%;
+    border: 2px solid #fe923a;
+    background-color: #fff;
+    color: #fe923a;
+    box-sizing: border-box;
+}
+
+.detail .left-con ul button{
+    background-color: #fff;
+    border: none;
+}
+
+.detail .left-con ul button a{
+    color: gray;
+    font-size: 12px;
+}
+
+.detail .left-con ul button a:hover{
+    text-decoration: underline;
+}
+

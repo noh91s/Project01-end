@@ -1,0 +1,192 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+.container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.update{
+  flex-basis: 1000px;
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+
+/* detail-menu */
+.update .detail-menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.update .detail-menu h1.title{
+  font-size: 32px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.update .detail-menu .nav{
+  padding: 30px 0;
+  box-sizing: border-box;
+}
+
+.update .detail-menu .nav ul{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.update .detail-menu .nav ul li{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+}
+
+.update .detail-menu .nav ul li a{
+  color: #0A2647;
+}
+
+.update .detail-menu .nav ul li a:hover{
+  color: #205295;
+}
+
+/* divide */
+.update .update-divide{
+  padding: 0 0 50px 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.update .update-divide hr.divide{
+  width: 1300px;
+  border: 0;
+  border-bottom: 2px dashed #eee;
+  background: #999;
+}
+
+/* update-con */
+.update .update-con{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+table{
+  width: 800px;
+  height: auto;
+  text-align: left;
+  border-left: 1.5px solid #fff;
+  border-right: 1.5px solid #fff;
+  box-sizing: border-box;
+}
+
+th{
+  padding: 40px 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+
+  display: flex;
+  justify-content: start;
+}
+
+th span{
+  font-size: 14px;
+}
+
+
+th img{
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+
+td{
+  width: 85%; 
+}
+
+td input{
+  width: 90%;
+  height: 50px;
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 14px;
+  border: 1px solid #8c8f96;
+  padding: 2px 10px;
+  letter-spacing: 1px;
+}
+
+td input.input-email{
+  background-color: #f4f6f8;
+  border: 1px solid #e1e2e4;
+}
+
+.update .update-con .submit{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 0 20px 0;
+  box-sizing: border-box;
+}
+
+.update .update-con .submit input{
+  padding: 15px 60px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.update .update-con .submit input[type=reset]{
+  border: none;
+}
+
+.update .update-con .submit input[type=reset]:hover{
+  background-color: #e5e5e5;
+}
+
+.update .update-con .submit input[type=submit]{
+  border: none;
+  background-color: #205295;
+  color: #fff;
+}
+
+.update .update-con .submit input[type=submit]:hover{
+  background-color: #0A2647;
+  color: #fff;
+}
+
+/* move-link */
+.update .update-con .move-link{
+  padding: 0 0 5px 0;
+}
+
+.update .update-con .move-link ul{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.update .update-con .move-link ul li{
+  color: #222;
+  font-size: 12px;
+  letter-spacing:-1px;
+  text-align:center;
+  transition:.2s linear;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.update .update-con .move-link ul li a{
+  color: #222;
+}
+
+.update .update-con .move-link ul li a:hover{
+  font-weight: bold;
+  color: #0A2647;
+}

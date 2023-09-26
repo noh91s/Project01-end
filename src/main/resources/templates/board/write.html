@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/baselayout}"
+>
+<th:block layout:fragment="title">
+    <title>게시판 : 작성</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/board/write.css}">
+</th:block>
+<th:block layout:fragment="script">
+    <!--  <script th:src="${/js/index.js}"></script>-->
+</th:block>
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="board-con">
+            <div class="board-title">
+                <h1>Posts</h1>
+                <h2>이곳에서 자유롭게 이야기하세요.</h2>
+            </div>
+            <div class="board-write">
+                <div class="board-list-con">
+                    <table border="1">
+                        <form th:action="@{/board/write}" method="post" enctype="multipart/form-data"
+                              th:object="${boardDto}">
+                            <tr>
+                                <th scope="row"><label th:for="title">제목</label></th>
+                                <td>
+                                    <input type="text" th:field="*{title}" class="input1">
+                                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="error">title
+                                        Error</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label th:for="writer">작성자</label></th>
+                                <td>
+                                    <input type="text" th:field="*{writer}" class="input2">
+                                    <p th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}" class="error">title
+                                        Error</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label th:for="boardFile">첨부파일</label></th>
+                                <td>
+                                    <input type="file" th:field="*{boardFile}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label th:for="content">내용</label></th>
+                                <td>
+                                    <textarea name="content" id="" cols="30" rows="10" th:field="*{content}"
+                                              class="input3"></textarea>
+                                    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="error">
+                                        content Error</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="th-last"></th>
+                                <td class="td-last">
+                                    <input type="submit" value="작성">
+                                    <a th:href="@{/board/list}">목록</a>
+                                </td>
+                            </tr>
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

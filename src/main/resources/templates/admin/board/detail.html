@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/adminlayout}"
+>
+<th:block layout:fragment="title">
+    <title>관리자 : 게시판 상세보기</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/admin/board/detail.css}">
+</th:block>
+<th:block layout:fragment="script">
+</th:block>
+<th:block layout:fragment="admin-con">
+    <div class="detail">
+        <div class="detail-con">
+            <div class="detail-form">
+                <h1>게시글조회</h1>
+                <div class="board-detail">
+                    <table class="detail-table">
+                        <tr>
+                            <td class="td-title"><span th:text="${board.title}"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span>작성자 | </span><span th:text="${board.writer}"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span>작성일자 | </span><span
+                                    th:text="${#temporals.format(board.createTime, 'yyyy-MM-dd HH:mm:ss')}"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span>조회수 | </span><span th:text="${board.hit}"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span>첨부파일 | </span>
+                                <span th:if="${board.isFile}==1">
+                                <a th:href="@{/download/board/{bfile}(bfile=${board.getBFileEntityList().get(0).getFileNewName()})}"
+                                   th:download="${board.getBFileEntityList().get(0).getFileOldName()}"
+                                   th:text="${board.getBFileEntityList().get(0).getFileOldName()}"></a>
+                                </span>
+                                <span th:unless="${board.isFile}==1">
+                                    첨부파일없음
+                                </span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-content"><span th:text="${board.content}"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="th-last">
+<!--                                <th:block th:if="${#authentication.principal.memberEntity.equals(board.memberEntity)}">-->
+                                    <a th:href="@{/board/delete/{id}(id=${board.id})}">삭제</a>
+<!--                                </th:block>-->
+                                <a th:href="@{/admin/board}">목록</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

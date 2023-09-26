@@ -1,0 +1,142 @@
+/* header start */
+.header{
+    width: 100%;
+
+}
+
+/* top-header start */
+.top-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    gap: 10px;
+}
+
+
+.top-header .top-menu{
+    /* flex-basis: 1600px; */
+    width: 100%;
+    padding: 0 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    gap: 10px;
+}
+
+.top-header .top-menu h1.logo{
+    flex-basis: 120px;
+}
+
+.top-header .top-menu h1.logo img{
+    width: 250px;
+    height: 50px;
+    display: block;
+}
+
+.top-header .top-menu .top-right-menu >ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.top-header .top-menu .top-right-menu >ul >li{
+    color: #0A2647;
+    font-size: 18px;
+    padding: 10px;
+    line-height: 40px;
+    font-weight: bold;
+
+}
+
+.top-header .top-menu .top-right-menu ul a{
+    color: inherit;
+}
+
+
+.top-header .top-menu .top-right-menu ul a:hover{
+    color: #BB2525;
+}
+
+.top-header .top-menu .top-right-menu ul li:nth-first-child(1){
+    width: 30px;
+}
+
+.top-header .top-menu .top-right-menu ul li:nth-first-child img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.top-header .top-menu .top-right-menu ul li button{
+    background-color: #ffffff;
+    border: none;
+}
+
+.top-header .top-menu .top-right-menu ul li:nth-child(2){
+    /* padding: 15px 3px 0 0; */
+}
+
+.top-header .top-menu .top-right-menu ul li button img{
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+.top-header .top-menu .top-right-menu ul li#searchForm{
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+    z-index: 999;
+}
+
+.top-header .top-menu .top-right-menu ul li#searchForm div{
+
+    flex:1;
+    display: none;
+    justify-content: space-between;
+    position:absolute;
+    top: 10px;
+    left: -240px;
+    /* border: 2px solid #000000; */
+    border-radius: 20px;
+    height: 45px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+
+}
+.top-header .top-menu .top-right-menu ul li#searchForm div form{
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.top-header .top-menu .top-right-menu ul li#searchForm div form >ul{
+    display: flex;
+    justify-content: space-between;
+ 
+}
+.top-header .top-menu .top-right-menu ul li#searchForm div form >ul >li{
+
+}
+
+.top-header .top-menu .top-right-menu ul li#searchForm div form select{
+    border: none;
+    margin-left: 10.5px;    
+}
+
+.top-header .top-menu .top-right-menu ul li#searchForm div form input{
+    background-color: #ffffff;
+    border: none;
+    margin-left: 5.5px; 
+}
+.top-header .top-menu .top-right-menu ul li#searchForm div form button{
+    background-color: #ffffff;
+    border: none;
+    margin: 10.5px;
+}
+.top-header .top-menu .top-right-menu ul li#searchForm div form button .img{
+    display: block;
+}
+

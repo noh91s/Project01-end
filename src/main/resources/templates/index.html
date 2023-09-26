@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/baselayout}"
+>
+<th:block layout:fragment="title">
+    <title>🚀 ＬＥＧＯＬＥＧＯ</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</th:block>
+<th:block layout:fragment="script">
+      <script th:src="@{/js/index/index.js}"></script>
+</th:block>
+<th:block layout:fragment="container">
+    <div class="container">
+        <div class="index">
+            <div class="section1">
+                <div class="inner-con">
+                    <div class="main-con">
+                        <h1>온 가족이 함께할 수 있는 특별한 선물</h1>
+                        <h2>신제품 LEGOLEGOⓒ의 제품들을 마음껏 구경하세요</h2>
+                        <a th:href="@{/item/list}"><span>쇼핑하기</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="section2">
+                <div class="category-nav">
+                    <div class="btn-con">
+                        <span class="left-btn" id="preBtn"> <img th:src="@{/images/index/left.png}" alt="left"> </span>
+                    </div>
+                    <div class="category-menu" id="slider-container">
+                        <ul id="slider">
+                            <li>
+                                <img th:src="@{/images/index/lego_head_01.png}" alt="lego_head_01">
+                                <a th:href="@{/item/list}">전체상품</a>
+                            </li>
+                            <th:block th:each="category: ${categoryList}">
+                                <li>
+                                    <img th:src="@{/images/index/lego_head_02.png}" alt="lego_head_02">
+                                    <a th:href="@{/item/list?subject=category&search={category}(category=${category.categories})}"
+                                       th:text="${category.categories}"></a>
+                                </li>
+                            </th:block>
+                        </ul>
+                    </div>
+                    <div class="btn-con">
+                        <span class="right-btn" id="nextBtn"><img th:src="@{/images/index/right.png}" alt="right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="section3">
+                <div class="movie-con">
+                    <div class="movie-title">
+                        <h1>Movie Collection🎥</h1>
+                    </div>
+                    <div class="item-nav">
+                        <div class="btn-con">
+                            <span class="left-btn" id="sliderMovie_preBtn"><img th:src="@{/images/index/left.png}" alt="left"></span>
+                        </div>
+                        <div class="item-menu" id="sliderMovie-container">
+                            <ul id="sliderMovie">
+                                <th:block th:each="item: ${searchList}">
+                                    <li>
+                                        <div class="top-con">
+                                            <a th:href="@{/item/detail(id=${item.id})}">
+                                                <th:block th:if="${item.isFile==1}">
+                                                    <img th:src="@{/files/} + ${item.saveName}"
+                                                         alt="상품 이미지">
+                                                </th:block>
+                                                <th:block th:unless="${item.isFile==1}">
+                                                    <img th:src="@{https://placehold.co/300x400?text=No\nImage}" alt="이미지 오류">
+                                                </th:block>
+                                            </a>
+                                        </div>
+                                        <div class="bottom-con">
+                                            <ul>
+                                                <li>
+                                                    <a th:href="@{/item/detail(id=${item.id})}">
+                                                        <span th:text="${item.name}" class="span-name"></span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <span th:text="${item.detail}" class="span-detail"></span>
+                                                </li>
+                                                <li class="li-price">
+                                                    <span th:text="${#numbers.formatInteger(item.price, 3, 'COMMA') + '원'}" class="span-price"></span>
+                                                </li>
+                                                <li>
+                                                    <form th:action="@{/cart/add}" method="post"
+                                                          th:object="${wishlistDto}">
+                                                        <ul>
+                                                            <li>
+                                                                <input type="hidden" name="size" id="size" value="1">
+                                                            </li>
+                                                            <li>
+                                                                <input type="hidden" th:value="${item.id}" name="id">
+                                                            </li>
+                                                            <li>
+                                                                <input type="submit" value="Add to Cart"  class="input-submit">
+                                                            </li>
+                                                        </ul>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </th:block>
+                            </ul>
+                        </div>
+                        <div class="btn-con">
+                            <span class="right-btn" id="sliderMovie_nextBtn"><img th:src="@{/images/index/right.png}" alt="right"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</th:block>
+</html>

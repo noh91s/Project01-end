@@ -1,0 +1,201 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+.container{
+  width: 100%;
+}
+
+.login{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.login .login-con{
+  flex-basis: 500px;
+  padding: 30px;
+}
+
+/* login title */
+.login .login-con h1.title{
+  color:#616161;
+  font-size: 30px;
+  letter-spacing:-3px;
+  text-align:center;
+  transition:.2s linear;
+  font-weight: 900;
+}
+
+/* login-form */
+.login .login-con .login-form{
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.login .login-con .login-form ul{
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.login .login-con .login-form ul li input{
+  background-color: #f2f2f2; 
+  display:block;
+  width:100%;
+  max-width:680px;
+  height:50px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  border-radius:8px;
+  font-size:14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.login .login-con .login-form ul li input[type=submit]{
+  background:#0A2647;
+  color:white;
+  display:block;
+  width:100%;
+  max-width:680px;
+  height:50px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-size:14px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow:0 15px 30px rgba(#0A2647,.36);
+  transition:.2s linear;  
+}
+
+/* move-link */
+.login .login-con .move-link{
+  padding: 0 0 5px 0;
+}
+
+.login .login-con .move-link ul{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.login .login-con .move-link ul li{
+  color: #222;
+  font-size: 12px;
+  letter-spacing:-1px;
+  text-align:center;
+  transition:.2s linear;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.login .login-con .move-link ul li a{
+  color: #222;
+}
+
+.login .login-con .move-link ul li a:hover{
+  font-weight: bold;
+  color: #0A2647;
+}
+
+/* move-password */
+.login .login-con .move-password{
+  padding: 0 0 5px 0;
+}
+
+.login .login-con .move-password ul{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.login .login-con .move-password ul li{
+  color: #222;
+  font-size: 12px;
+  letter-spacing:-1px;
+  text-align:center;
+  transition:.2s linear;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.login .login-con .move-password ul li a{
+  color: #222;
+}
+
+.login .login-con .move-password ul li a:hover{
+  font-weight: bold;
+  color: #0A2647;
+}
+
+/* seperator */
+.login .login-con .separator{
+    display:block;
+    margin:30px auto 10px;
+    text-align:center;
+    height:40px;
+    position:relative;
+    background:transparent;
+    font-size:13px;
+    width:90%;
+    max-width:680px;
+}
+
+.login .login-con .separator p{
+  color: #ccc;
+}
+
+.login .login-con .separator::after{
+  content:"";
+  position:absolute;
+  top:8px;
+  left:0;
+  background: #ccc;
+  height:1px;
+  width:45%;
+}
+
+.login .login-con .separator::before{
+  content:"";
+  position:absolute;
+  top:8px;
+  right:0;
+  background: #ccc;
+  height:1px;
+  width:45%;
+}
+
+/* sns-login */
+.login .login-con .sns-login{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login .login-con .sns-login .sns-login-menu{
+  padding: 3px 20px;
+}
+
+.login .login-con .sns-login .sns-login-menu a{
+  align-items: center;
+  width: 100%;
+  padding: 3px 20px;
+}
+
+.login .login-con .sns-login .sns-login-menu a img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+

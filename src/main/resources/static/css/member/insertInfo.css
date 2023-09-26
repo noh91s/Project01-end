@@ -1,0 +1,132 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+.container{
+  width: 100%;
+}
+
+.insertInfo{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.insertInfo .insertInfo-con{
+  flex-basis: 600px;
+  padding: 30px;
+}
+
+/* insertInfo title */
+.insertInfo .insertInfo-con h1.title1{
+  color:#616161;
+  font-size: 30px;
+  letter-spacing:-3px;
+  text-align:center;
+  transition:.2s linear;
+  font-weight: 900;
+}
+
+.insertInfo .insertInfo-con h2.title2{
+  color:#494949;
+  font-size: 24px;
+  letter-spacing:-3px;
+  text-align:center;
+  transition:.2s linear;
+  font-weight: 900;
+}
+
+
+/* insertInfo-form */
+.insertInfo .insertInfo-con .insertInfo-form{
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+
+}
+
+.insertInfo .insertInfo-con .insertInfo-form ul{
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.insertInfo .insertInfo-con .insertInfo-form ul li{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.insertInfo .insertInfo-con .insertInfo-form ul li label{
+  flex: 1;
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: left;
+  line-height: 3;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.insertInfo .insertInfo-con .insertInfo-form ul li label img{
+  display: block;
+  width: 10px;
+  height: 10px;
+}
+
+
+.insertInfo .insertInfo-con .insertInfo-form ul li input{
+  flex: 4;
+  padding: 5px;
+  box-shadow:  0 1px  0 0 #ccc;
+  display:block;
+  width:100%;
+  max-width:680px;
+  height:50px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  font-size:14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.insertInfo .insertInfo-con .insertInfo-form ul li input[type=submit]{
+  background:#0A2647;
+  color:white;
+  display:block;
+  width:100%;
+  max-width:680px;
+  height:50px;
+  border-radius:3px;
+  border:none;
+  cursor:pointer;
+  font-size:14px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow:0 15px 30px rgba(#0A2647,.36);
+  transition:.2s linear;  
+}
+
+.insertInfo .insertInfo-con .insertInfo-form ul li input[type=reset]{
+  background:#afafaf;
+  color:white;
+  display:block;
+  width:100%;
+  max-width:680px;
+  height:50px;
+  border-radius:3px;
+  border:none;
+  cursor:pointer;
+  font-size:14px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow:0 15px 30px rgba(#0A2647,.36);
+  transition:.2s linear;  
+}
+
+
+
+
+

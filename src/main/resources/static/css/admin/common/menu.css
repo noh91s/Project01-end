@@ -1,0 +1,56 @@
+/* admin-menu */
+.admin .admin-page .admin-menu{
+    width: 300px;
+    background-color: #353D50;
+    padding: 200px 0;
+}
+
+/* admin-menu-list */
+.admin .admin-page .admin-menu .admin-menu-list{
+    padding: 30px 0;
+}
+
+.admin .admin-page .admin-menu .admin-menu-list ul{
+    gap: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.admin .admin-page .admin-menu .admin-menu-list ul li{
+    padding: 30px 10px;
+    text-align: center;
+    color: #bacad1;
+}
+
+.admin .admin-page .admin-menu .admin-menu-list ul li a{
+    color: inherit;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.admin .admin-page .admin-menu .admin-menu-list ul li a:hover{
+    text-decoration: underline;
+}
+
+/* menu-divide */
+.admin .admin-page .admin-menu .menu-divide{
+    padding: 20px;
+}
+
+.admin .admin-page .admin-menu .menu-divide hr.divide{
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #22252c inset;
+}
+
+/* move-link */
+.admin .admin-page .admin-menu .move-link{
+    padding: 6px;
+    text-align: center;
+}
+
+.admin .admin-page .admin-menu .move-link a{
+    color: #bacad1;
+    font-size: 12px;
+    text-align: center;
+}

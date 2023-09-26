@@ -1,0 +1,241 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/adminHeader.css);
+@import url(/css/admin/common/menu.css);
+
+.admin-page{
+    display: flex;
+}
+
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-con-search{
+    display: flex;
+    padding: 30px;
+    justify-content: right;
+    align-items: center;
+}
+
+.admin-con-search select{
+    border: 1px solid #ccc;
+    padding: 6px;
+    line-height: 18px;
+    box-sizing: border-box;
+}
+.admin-con-search input{
+    border: 1px solid #ccc;
+    padding: 6px;
+    line-height: 18px;
+    box-sizing: border-box;
+}
+.admin-con-search input.input2{
+
+    color: #222;
+    text-align: center;
+    font-size: 13px;
+    line-height: 21px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 15px;
+    box-sizing: border-box;
+}
+.admin-con-search input.input2:hover{
+    background-color: #dfdfdf;
+}
+
+/* admin-con */
+.admin .admin-page .admin-con{
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* user-con */
+.admin .admin-page .admin-con .user-con{
+    width: 1000px;
+    flex-basis: 1600px;
+}
+
+
+.admin .admin-page .admin-con .user-con .admin-con-title{
+    padding: 100px 0 50px 0;
+}
+
+.admin .admin-page .admin-con .user-con .admin-con-title h1.title{
+    font-size: 32px;
+    color: #22252c;
+    text-align: center;
+}
+
+.admin .admin-page .admin-con .user-con .admin-con-search{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.admin .admin-page .admin-con .user-con .admin-con-list{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.admin .admin-page .admin-con .user-con .admin-con-list .admin-con-table{
+    display: flex;
+    flex-basis: 800px;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+table{
+    width: 1200px;
+    padding: 10px;
+    font-size: 12px;
+
+    text-align:center;
+    border-collapse: collapse;
+    border-top:2px solid #353D50;
+    border-bottom:2px solid #353D50;
+    border-left: none;
+    border-right: none;
+
+}
+
+tr, th{
+    text-align:center;
+    border-collapse: collapse;
+    border:1px solid #e8e8e8;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    border-left: none;
+    border-right: none;
+}
+
+td{
+    text-align: left;
+    border-collapse: collapse;
+    border:1px solid #e8e8e8;
+    padding:10px 0 8px 20px;
+}
+
+th{
+    width:110px;
+    padding:10px 0 8px 20px;
+    border:1px solid #e8e8e8;
+    border-bottom:1px solid #353D50;
+    background-color:#fbfafa;
+    text-align:left;
+    font-weight:normal;
+    vertical-align: middle;
+}
+
+button#create{
+    padding: 7px 10px;
+    background-color: #fff;
+    color: #0A2647;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #0A2647;
+    border-radius: 4px;
+    box-sizing: border-box;
+ }
+
+
+
+/* paging */
+.paging{
+    display: flex;
+    justify-content: center;
+    padding: 100px 0;
+    box-sizing: border-box;
+}
+
+.paging >ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.paging >ul >li a{
+    background-color: #fff;
+    color: #2C74B3;
+    border: 1px solid #ECEDF0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 50px;
+    display: flex;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kanit', sans-serif;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+
+.paging >ul >li .page0{
+    background-color: #fff;
+    color: #2C74B3;
+    box-shadow: inset 0px 0px 8px 0px #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 50px;
+    display: flex;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kanit', sans-serif;
+}
+
+.paging >ul >li .now{
+    background-color: #fff;
+    color: #2C74B3;
+    box-shadow: inset 0px 0px 8px 0px #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 50px;
+    display: flex;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kanit', sans-serif;
+    position:relative;
+    cursor:pointer;
+}
+
+.paging >ul >li a:hover{
+    box-shadow: inset 0px 0px 8px 0px #ccc;
+    box-sizing: border-box;
+}
+
+.paging >ul >li .now::after{
+    content: "현재페이지";
+    font-size: 12px;
+    width: 150px;
+    color: #8a8e99;
+    background-color: #ffffff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -25px;
+    visibility: hidden;
+    font-family: 'Kanit', sans-serif;
+}
+
+.paging >ul >li .now:hover::after{
+    visibility: visible;
+}
+

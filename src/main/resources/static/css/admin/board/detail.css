@@ -1,0 +1,356 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/adminHeader.css);
+@import url(/css/admin/common/menu.css);
+
+.admin-page{
+    display: flex;
+}
+
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.detail{
+    flex: 7;
+    padding: 100px 30px 30px 30px;
+}
+
+.detail .detail-form h1{
+    text-align: center;
+}
+
+.board-con{
+    flex-basis: 1600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    padding: 100px 200px;
+    box-sizing: border-box;
+}
+
+/* board-title */
+.board-con .board-title{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.board-con .board-title h1{
+    font-size: 38px;
+    color: #bb2525;
+    text-shadow: 2px 2px 0px #fff, 4px 4px 0px #bb2525;
+}
+
+.board-con .board-title h2{
+    font-size: 24px;
+    color: #0A2647;
+}
+
+/* board-detail */
+.board-con .board-detail{
+    width: 100%;
+    flex-basis: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+.board-con .board-detail{
+    width: 100%;
+    height: auto;
+    padding: 70px 50px 0px 50px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+/* table detail*/
+table.detail-table {
+    width: 100%;
+    height: auto;
+    font-size: .9em;
+    border-collapse: collapse;
+}
+
+table.detail-table td{
+    padding: 1em .5em;
+    vertical-align: middle;
+    background: #fff;
+    text-align: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+table.detail-table td img{
+    width: 24px;
+    height: 24px;
+}
+
+table.detail-table td.td-title{
+    font-size: 26px;
+    font-weight: bold;
+    font-family: auto;
+}
+
+table.detail-table td.td-content{
+    height: auto;
+    font-size: 18px;
+    vertical-align: top;
+    padding: 50px;
+    border-top: 1px solid #ccc;
+}
+
+table.detail-table .th-last{
+    background-color: #fff;
+    border: 1px solid #fff;
+    text-align: right;
+    padding: 20px 60px;
+}
+
+table.detail-table .th-last a{
+    padding: 7px 20px;
+    background-color: #fff;
+    color: #0A2647;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #0A2647;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+table.detail-table .th-last a:hover{
+    background-color: #0A2647;
+    color: #fff;
+}
+
+/* board-reply */
+.board-divide button{
+    display: flex;
+    justify-content: flex-start;
+    padding: 7px 20px;
+    background-color: #fff;
+    color: #0A2647;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #0A2647;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+.container .board-con .board-reply{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.board-con .board-reply .board-divide{
+    padding: 30px 50px;
+    box-sizing: border-box;
+}
+
+.board-con .board-reply .board-divide hr.divide{
+    border: none;
+    border-top: 1px solid #ccc;
+    color: #ccc;
+    text-align: center;
+}
+
+.board-con .board-reply .board-divide hr.divide::after{
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: #fff;
+}
+
+.board-con .board-reply .reply-write{
+    position: relative;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+}
+
+/* table-write */
+table.write-table{
+    width: 90%;
+    border: 1px solid #D2D4D9;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #f2f5ff;
+}
+
+table.write-table tr{
+    font-size: 16px;
+    padding: 0 0 5px 0;
+}
+
+table.write-table tr .td-writer textarea{
+    display: flex;
+    justify-content: flex-start;
+    width: 150px;
+    height: 25px;
+    resize: none;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #D2D4D9;
+    font-family: auto;
+}
+
+
+table.write-table tr .td-writer input{
+    border: 1px solid #D2D4D9;
+    width: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+
+table.write-table tr .td-content textarea{
+    display: flex;
+    justify-content: flex-start;
+    resize: none;
+    width: 97%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #D2D4D9;
+    font-family: auto;
+}
+
+table.write-table tr .td-submit button{
+    padding: 7px 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+table.write-table tr .td-submit{
+    text-align: right;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+table.write-table tr .td-submit input:hover{
+    background-color: #205295;
+    border: 1px solid #205295;
+    box-sizing: border-box;
+}
+
+/* reply-list */
+.board-con .reply-list{
+    display: flex;
+    justify-content: center;
+}
+
+/* list-table */
+#replyData{
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    text-align: left;
+}
+
+table.list-table{
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+table.list-table td{
+    padding: 0 0 20px 0;
+}
+
+table.list-table td span.span1{
+    padding: 5px 0;
+    font-size: 14px;
+    color: #959CAA;
+}
+
+table.list-table td span.span2{
+    padding: 5px 0;
+    font-size: 10px;
+    color: #A2A8B5;
+}
+
+table.list-table td span.span3{
+    padding: 8px 0;
+    font-size: 16px;
+    color: #555;
+    font-weight: 600;
+}
+table.list-table td span.span4{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+table.list-table td span.span4 >input{
+    padding: 7px 20px;
+    background-color: #fff;
+    color: #0A2647;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #0A2647;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+table.list-table td span.span4 >button{
+    padding: 7px 20px;
+    background-color: #fff;
+    color: #0A2647;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #0A2647;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+table.list-table td span.span4 >a{
+    padding: 7px 20px;
+    background-color: #fff;
+    color: #0A2647;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #0A2647;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+table.list-table td .reply-list-divide{
+    padding: 20px 0 0 0;
+    box-sizing: border-box;
+}
+
+table.list-table td .reply-list-divide hr.divide{
+    border: 1px solid #EAEBEE;
+}
+
+.list-table #replyData .update{
+    display: none;
+}
+

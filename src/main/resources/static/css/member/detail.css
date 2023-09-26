@@ -1,0 +1,155 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+/* detail start */
+.container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.detail{
+  flex-basis: 1000px;
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+
+
+/* detail-menu */
+.detail .detail-menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail .detail-menu h1.title{
+  font-size: 32px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.detail .detail-menu .nav{
+  padding: 30px 0;
+  box-sizing: border-box;
+}
+
+.detail .detail-menu .nav ul{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.detail .detail-menu .nav ul li{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+}
+
+.detail .detail-menu .nav ul li a{
+  color: #0A2647;
+}
+
+.detail .detail-menu .nav ul li a:hover{
+  color: #205295;
+}
+
+/* divide */
+.detail .detail-divide{
+  padding: 0 0 50px 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.detail .detail-divide hr.divide{
+  width: 1300px;
+  border: 0;
+  border-bottom: 2px dashed #eee;
+  background: #999;
+}
+
+/* detail-profile */
+.detail .detail-profile{
+  display: flex;
+  justify-content: center;
+}
+
+/* table */
+table{
+  width: 800px;
+  height: auto;
+  text-align: left;
+  border-left: 1.5px solid #fff;
+  border-right: 1.5px solid #fff;
+  box-sizing: border-box;
+}
+
+th{
+  padding: 40px 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+
+  display: flex;
+  justify-content: start;
+}
+
+th span{
+  font-size: 14px;
+}
+
+
+th img{
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+
+td{
+  width: 85%; 
+}
+
+td span{
+  width: 90%;
+  height: 50px;
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 14px;
+  background: #f4f6f8;
+  border: 1px solid #e1e2e4;
+  padding: 2px 10px;
+  letter-spacing: 1px;
+}
+
+/* move-link */
+.detail .move-link{
+  display: flex;
+  justify-content: center;
+  padding: 70px 0;
+  box-sizing: border-box;
+}
+
+.detail .move-link ul{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.detail .move-link a{
+  padding: 15px 60px;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #205295;
+  border: 1px solid #205295;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.detail .move-link a:hover{
+  color: #fff;
+  background-color: #205295;
+  box-sizing: border-box;
+}

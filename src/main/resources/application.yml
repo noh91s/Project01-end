@@ -1,0 +1,41 @@
+server:
+  port: 8097
+
+spring:
+
+  mail:
+    host: smtp.gmail.com # 1
+    port: 587 # 2              환경변수로 설정할때 아래.
+    username: rlaghdtjd123 # 3  ${mail.username}
+    password: eimfilmkigkwefrj # 4 ${mail.password}
+    properties:
+      mail:
+        smtp:
+          auth: true # 5
+          timeout: 5000 # 6
+          starttls:
+            enable: true # 7
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springdb
+    username: root
+    password: 1234
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+    check-template-location: true
+
+  profiles:
+    include: oauth2

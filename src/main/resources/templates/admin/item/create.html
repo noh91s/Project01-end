@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/adminlayout}"
+>
+<th:block layout:fragment="title">
+    <title>관리자 : 상품 등록</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/admin/item/create.css}">
+</th:block>
+
+<th:block layout:fragment="admin-con">
+    <div class="container">
+        <div class="create">
+            <div class="title">
+                <h1 class="title">상품등록페이지</h1>
+            </div>
+            <div class="create-page">
+                <table class="category">
+                    <form th:action="@{/item/category}" method="get" th:object="${categoryDto}">
+                        <tr>
+                            <th>카테고리</th>
+                            <td>
+                                <input type="text" name="categories" id="categories" class="td1">
+                                <input type="submit" value="카테고리추가" class="td2">
+                            </td>
+                        </tr>
+                    </form>
+                </table>
+                <table class="item-create">
+                    <form id="itemForm" th:action="@{/item/save}" th:object="${itemDto}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" th:field="*{id}">
+                        <input type="hidden" th:field="*{isFile}">
+                        <tr>
+                            <th><label for="product">상품명</label></th>
+                            <td><input type="text" th:field="*{name}" id="product" class="td5"></td>
+                        </tr>
+                        <tr>
+                            <th> <label for="category">분류</label></th>
+                            <td>
+                                <select name="category" id="category"  class="td3">
+                                    <option th:each="category: ${categoryList}" th:text="${category.categories}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="detail">상세정보</label></th>
+                            <td><input type="text" th:field="*{detail}" id="detail" class="td5"></td>
+                        </tr>
+                        <tr>
+                            <th><label>공개여부</label></th>
+                            <td>
+                            <label for="deleteY">공개</label>
+                            <input type="radio" th:checked="${itemDto.deleteYn == 0}" value="0" id="deleteN" name="deleteYn">
+                            <label for="deleteN">비공개</label>
+                            <input type="radio" th:checked="${itemDto.deleteYn == 1}" value="1" id="deleteY" name="deleteYn">
+                            <td>
+                        </tr>
+                        <tr>
+                            <th><label for="price">가격</label></th>
+                            <td><input type="number" th:field="*{price}" id="price" class="td5"></td>
+                        </tr>
+                        <tr>
+                            <th><span>첨부파일</span></th>
+                            <td>
+                                <!--                                <input type="text" readonly />-->
+                                <label>
+                                    <input type="file" name="files" onchange="selectFile(this);" />
+                                </label>
+                                <!--
+                                <button type="button" onclick="removeFile(this);" class="btns del_btn"><span>삭제</span></button>
+                                <button type="button" onclick="addFile();" class="btns fn_add_btn"><span>파일 추가</span></button>
+                                -->
+                            </td>
+                        </tr>
+                        <!--                        <tr>-->
+                        <!--                            <th><label th:for="itemFile">파일</label></th>-->
+                        <!--                            <td> <input type="file" th:field="*{itemFile}"></td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            로그인아이디 : <span th:text="${#authentication.principal.username}"></span>-->
+                        <!--                        </tr>-->
+                        <tr>
+                            <th class="th4"></th>
+                            <td class="td4">
+                                <a th:href="@{/admin/item}">돌아가기</a>
+                                <input type="button" onclick="itemSubmit()" value="상품 등록" class="item-submit"></td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="script">
+    <script>
+    function itemSubmit(){
+        const form = document.getElementById('itemForm');
+        const files = document.getElementsByName('files');
+        const input = document.getElementById('isFile');
+        if ( files[0].files.length > 0 ){
+            input.setAttribute('value', '1');
+        }else{
+            input.setAttribute('value', '0');
+        }
+
+
+        form.action = [[ ${itemDto.id == null} ]] ? '/admin/item/save' : '/admin/item/update';
+        form.submit();
+    }
+
+    // 파일 선택
+    function selectFile(element) {
+
+        const file = element.files[0];
+        const filename = element.closest('.file_input').firstElementChild;
+
+        // 1. 파일 선택 창에서 취소 버튼이 클릭된 경우
+        if ( !file ) {
+            filename.value = '';
+            return false;
+        }
+
+        // 2. 파일 크기가 10MB를 초과하는 경우
+        const fileSize = Math.floor(file.size / 1024 / 1024);
+        if (fileSize > 10) {
+            alert('10MB 이하의 파일로 업로드해 주세요.');
+            filename.value = '';
+            element.value = '';
+            return false;
+        }
+
+        // 3. 파일명 지정
+        filename.value = file.name;
+    }
+    </script>
+</th:block>
+</html>

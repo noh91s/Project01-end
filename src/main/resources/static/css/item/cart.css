@@ -1,0 +1,213 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/footer.css);
+
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.wish-list{
+    flex-basis: 1000px;
+    padding: 100px 0;
+    box-sizing: border-box;
+}
+
+/* section1 */
+.wish-list .section1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wish-list .section1 h1.title{
+    font-size: 32px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.wish-list .section1 .nav{
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.wish-list .section1 .nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.wish-list .section1 .nav ul li{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Kanit', sans-serif;
+}
+
+.wish-list .section1 .nav ul li a{
+    color: #0A2647;
+}
+
+.wish-list .section1 .nav ul li a:hover{
+    color: #205295;
+}
+
+.wish-list .section2{
+    padding: 0 0 50px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.wish-list .section2 hr.divide{
+    width: 1300px;
+    border: 0;
+    border-bottom: 2px dashed #eee;
+    background: #999;
+}
+
+/* section3 */
+.wish-list .section3{
+    display: flex;
+    justify-content: center;
+}
+
+.wish-list .section3 img{
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+table{
+    width: 1000px;
+    height: auto;
+    text-align: center;
+    border-top: 1.5px solid #222;
+    border-bottom: 1.5px solid #222;
+    box-sizing: border-box;
+}
+
+tr{
+    border-bottom: 1.5px solid #d7d7d7;
+    border-left: 1.5px solid #fff;
+    border-right: 1.5px solid #fff;
+}
+
+td{
+    border-bottom: 1.5px solid #d7d7d7;
+    border-left: 1.5px solid #fff;
+    border-right: 1.5px solid #fff;
+}
+
+th{
+    height: 50px;
+    border-bottom: 1.5px solid #d7d7d7;
+    border-left: 1.5px solid #fff;
+    border-right: 1.5px solid #fff;
+}
+
+th.th1{
+    width: 30px;
+}
+
+th.th2{
+    width: 200px;
+}
+
+th.th3{
+    width: 500px;
+}
+
+th.th4{
+    width: 50px;
+}
+
+th.th5{
+    width: 150px;
+}
+
+th.th6{
+    width: 70px;
+}
+
+td.td-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+
+td.td-detail{
+    text-align: left;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+td.td-detail ul{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+td.td-detail ul li a:hover{
+    text-decoration: underline;
+}
+
+td.td-detail ul li span.span-name{
+    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+td.td-detail ul li span.span-detail{
+    color: #222;
+    font-size: 16px;
+}
+
+td.td-detail ul li span.span-price{
+    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+td.td-total-price span{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+td.td-delete a{
+    color: #ccc;
+}
+
+td.td-delete a:hover{
+    color: #205295;
+    text-decoration: underline;
+}
+
+/* section4 */
+.wish-list .section4{
+    display: flex;
+    justify-content: center;
+    padding: 80px 0;
+    box-sizing: border-box;
+    gap: 10px
+}
+
+.wish-list .section4 a{
+    padding: 15px 60px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #205295;
+    border: 1px solid #205295;
+    background-color: #fff;
+}
+
+.wish-list .section4 a:hover{
+    color: #fff;
+    background-color: #205295;
+    box-sizing: border-box;
+    box-sizing: border-box;
+}
+

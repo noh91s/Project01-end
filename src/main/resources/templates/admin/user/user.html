@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/adminlayout}"
+>
+<th:block layout:fragment="title">
+    <title>관리자 : 사용자 관리</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/admin/user/list.css}">
+</th:block>
+<th:block layout:fragment="script">
+<!--    <script th:src="@{/js/home/admin.js}" defer></script>-->
+</th:block>
+<th:block layout:fragment="admin-con">
+       <div class="admin-con">
+           <div class="user-con">
+               <div class="admin-con-title">
+                   <h1 class="title">사용자 관리</h1>
+               </div>
+<!--               <div class="admin-con-search">-->
+<!--                   <form th:action="@{/}" method="get">-->
+<!--                       <select name="subject" id="subject">-->
+<!--                           <option value="nickName">이름</option>-->
+<!--                           <option value="email">이메일</option>-->
+<!--                           <option value="role">권한</option>-->
+<!--                       </select>-->
+<!--                       <input type="text" name="search" id="search" th:value="${param.search}">-->
+<!--                       <input type="submit" value="검색">-->
+<!--                   </form>-->
+<!--               </div>-->
+               <div class="admin-con-list">
+                   <div class="admin-con-table">
+                       <table border="1">
+                           <thead>
+                               <tr>
+                                   <th class="th1">회원번호</th>
+                                   <th class="th2">이름</th>
+                                   <th class="th2">이메일</th>
+                                   <th class="th2">권한</th>
+                                   <th class="th2">상세보기</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr th:each="member :${memberList}">
+                                   <td th:text="${member.id}"></td>
+                                   <td th:text="${member.nickName}"></td>
+                                   <td th:text="${member.email}"></td>
+                                   <td th:text="${member.role}"></td>
+                                   <td><a th:href="@{/admin/userDetail/{id}(id=${member.id})}">보기</a></td>
+                               </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+           </div>
+       </div>
+</th:block>
+</html>

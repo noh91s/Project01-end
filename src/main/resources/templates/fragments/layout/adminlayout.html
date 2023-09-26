@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="~{fragments/common/head :: headFragment}"></head>
+
+<body>
+
+<div class="header" th:replace="~{fragments/common/adminHeader :: adminHeaderFragment}"></div>
+
+<div class="container">
+    <div class="admin">
+        <div class="admin-page">
+            <div class="admin-menu">
+                <div class="admin-menu-list">
+                    <ul>
+                        <li><a th:href="@{/admin/user}">사용자관리</a></li>
+                        <li><a th:href="@{/admin/item}">상품관리</a></li>
+                        <li><a th:href="@{/admin/board}">게시판관리</a></li>
+                    </ul>
+                </div>
+                <div class="menu-divide">
+                    <hr class="divide">
+                </div>
+                <div class="move-link">
+                    <a th:href="@{/}">일반페이지로 이동하기</a>
+                </div>
+            </div>
+
+            <th:block layout:fragment="admin-con">
+                <!-- 각페이지의 컨텐츠  -->
+            </th:block>
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

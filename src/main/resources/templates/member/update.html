@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/baselayout}"
+>
+<th:block layout:fragment="title">
+    <title>회원 : 수정</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/member/update.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+</th:block>
+<th:block layout:fragment="script">
+    <!--  <script th:src="${/js/index.js}"></script>-->
+</th:block>
+<th:block layout:fragment="container">
+
+<!--    <div class="container">-->
+<!--        <div class="update">-->
+<!--            <div class="update-con">-->
+<!--                <h1 class="title">회원정보 수정</h1>-->
+<!--                <div class="update-form">-->
+<!--                    <form th:action="@{/member/update}" method="post">-->
+<!--                        <ul>-->
+<!--                            <li>-->
+<!--                                <input type="hidden" name="${_csrf.parameterName}" th:value="${_csrf.token}">-->
+<!--                                <input type="hidden" name="id" th:value="${member.id}" id="id">-->
+<!--                                <input type="hidden" name="role" th:value="${member.role}" id="role">-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label th:for="email">이메일</label>-->
+<!--                                <input type="text" name="email" th:value="${member.email}" id="email" readonly>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label th:for="password">비밀번호</label>-->
+<!--                                <input type="password" name="password" minlength="8" maxlength="20"  id="password">-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label th:for="nickName">닉네임</label>-->
+
+
+<!--                                <input type="text" name="nickName" id="nickName">-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label th:for="phone">전화번호</label>-->
+<!--                                <input type="text" name="phone" id="phone">-->
+<!--                            </li>-->
+
+<!--                            <li>-->
+<!--                                <input type="reset" value="초기화">-->
+<!--                                <input type="submit" value="회원수정">-->
+<!--                            </li>-->
+
+
+<!--                        </ul>-->
+<!--                    </form>-->
+<!--                </div>-->
+
+<!--                <div class="move-link">-->
+<!--                    <ul>-->
+<!--                        <li><span>회원수정을 취소하고 싶으신가요?</span></li>-->
+<!--                        <li><a th:href="@{/member/detail/{id}(id=${member.id})}">마이페이지로 돌아가기</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="container">
+        <div class="update">
+            <div class="detail-menu">
+                <div class="title">
+                    <h1 class="title">Profile Update...</h1>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a th:href="@{/member/detail/{id}(id=${#authentication.principal.memberEntity.id})}">Profile</a></li>
+                        <li><a th:href="@{/cart/list}">Wish List</a></li>
+                        <li><a th:href="@{/board/pagingList}">My Posts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="update-divide">
+                <hr class="divide">
+            </div>
+            <div class="update-con">
+                <form th:action="@{/member/update}" method="post">
+                    <input type="hidden" name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                    <input type="hidden" name="id" th:value="${member.id}" id="id">
+                    <input type="hidden" name="role" th:value="${member.role}" id="role">
+                    <table>
+                        <tr>
+                            <th scope="row"><label th:for="email">이메일</label><span><img th:src="@{/images/member/asterisk.png}" alt="asterisk.png"></span></th>
+                            <td><input type="text" name="email" th:value="${member.email}" id="email" readonly class="input-email"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label th:for="password">비밀번호</label><span><img th:src="@{/images/member/asterisk.png}" alt="asterisk.png"></span> </th>
+                            <td><input type="password" name="password" minlength="8" maxlength="20"  id="password"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label th:for="nickName">이름</label><span><img th:src="@{/images/member/asterisk.png}" alt="asterisk.png"></span></th>
+                            <td><input type="text" name="nickName" id="nickName"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label th:for="phone">전화번호</label></th>
+                            <td><input type="text" name="phone" id="phone"></span></td>
+                        </tr>
+                    </table>
+                    <div class="submit">
+                        <input type="reset" value="초기화">
+                        <input type="submit" value="회원수정">
+                    </div>
+                </form>
+
+                <div class="move-link">
+                    <ul>
+                        <li><span>회원수정을 취소하고 싶으신가요?</span></li>
+                        <li><a th:href="@{/member/detail/{id}(id=${member.id})}">마이페이지로 돌아가기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+</html>

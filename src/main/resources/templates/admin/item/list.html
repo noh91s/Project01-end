@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/adminlayout}"
+>
+<th:block layout:fragment="title">
+    <title>관리자 : 상품 관리</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/admin/item/list.css}">
+</th:block>
+
+<th:block layout:fragment="admin-con">
+       <div class="admin-con">
+           <div class="user-con">
+               <div class="admin-con-title">
+                   <h1 class="title">상품 관리</h1>
+               </div>
+               <div class="admin-con-search">
+                   <form th:action="@{/admin/item}" method="get">
+                       <select name="subject" id="subject">
+                           <option value="name">상품명</option>
+                           <option value="category">카테고리</option>
+                       </select>
+                       <input type="text" name="search" id="search">
+                       <input type="submit" value="검색">
+                   </form>
+               </div>
+               <div class="admin-con-list">
+                   <div class="admin-con-table">
+                       <table border="1">
+                           <thead>
+                               <tr>
+                                   <th>상품번호</th>
+                                   <th>상품명</th>
+                                   <th>분류</th>
+                                   <th>공개여부</th>
+                                   <th>수정</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr th:each="item : ${result}">
+                                   <td th:text="${item.id}"></td>
+                                   <td th:text="${item.name}"></td>
+                                   <td th:text="${item.category}"></td>
+                                   <td th:text="${item.deleteYn==0} ? '공개' : '비공개' "></td>
+                                   <td><a th:href="@{/admin/item/create(id=${item.id})}">수정</a></td>
+                               </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+               <button type="button" th:onclick="|location.href='@{/admin/item/create}'|" id="create">상품등록</button>
+               <div class="paging">
+                   <ul>
+<!--                       <li>-->
+<!--                           <span th:if="${1==result.pageable.pageNumber+1}" class="page0">Start</span>-->
+<!--                           <span th:unless="${1==result.pageable.pageNumber+1}">-->
+<!--                                <a th:href="@{/admin/item(subject=${subject},search=${search},page=0,size=${pSize})}" class="page1">처음</a>-->
+<!--                            </span>-->
+<!--                       </li>-->
+<!--                       <li>-->
+<!--                           <span th:if="${1==result.pageable.pageNumber+1}" class="page0">PRE</span>-->
+<!--                           <span th:unless="${1==result.pageable.pageNumber+1}">-->
+<!--                             <a th:href="@{/admin/item(subject=${subject},search=${search},page=${result.pageable.pageNumber-1},size=${pSize})}" class="page1">이전</a>-->
+<!--                          </span>-->
+<!--                       </li>-->
+                       <li th:each="i: ${#numbers.sequence(startPage, endPage)}" class="block">
+                           <span th:if="${i==result.pageable.pageNumber+1}" th:text="${i}" class="now"> </span>
+                           <a th:unless="${i==result.pageable.pageNumber+1}"
+                          th:href="@{/admin/item(subject=${subject},search=${search},page=${i-1},size=${pSize})}" th:text="${i}"></a>
+                       </li>
+<!--                       <li>-->
+<!--                           <span th:if="${result.totalPages==result.pageable.pageNumber+1}" class="page0">PRE</span>-->
+<!--                           <span th:unless="${result.totalPages==result.pageable.pageNumber+1}">-->
+<!--                            <a th:href="@{/admin/item(subject=${subject},search=${search},page=${result.pageable.pageNumber+1},size=${pSize})}" class="page1">다음</a>-->
+<!--                            </span>-->
+<!--                       </li>-->
+<!--                       <li>-->
+<!--                           <span th:if="${result.totalPages==result.pageable.pageNumber+1}" class="page0">END</span>-->
+<!--                           <span th:unless="${result.totalPages==result.pageable.pageNumber+1}">-->
+<!--                                 <a th:href="@{/admin/item(subject=${subject},search=${search},page=${result.totalPages-1},size=${pSize})}" class="page1">마지막</a>-->
+<!--                          </span>-->
+<!--                       </li>-->
+                   </ul>
+               </div>
+           </div>
+       </div>
+
+</th:block>
+</html>

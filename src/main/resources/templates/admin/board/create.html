@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/adminlayout}"
+>
+<th:block layout:fragment="title">
+    <title>관리자 : 게시판 작성</title>
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</th:block>
+
+<th:block layout:fragment="admin-con">
+    <div class="create">
+        <div class="create-con">
+            <div class="create-page">
+                <form id="itemForm" th:action="@{/admin/board/save}" th:object="${boardDto}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" th:field="*{id}">
+                    <input type="hidden" th:field="*{is_file}" value="0">
+                    <ul>
+                        <li>
+                            <h1 class="title">게시글</h1>
+                        </li>
+                        <li>
+                            <label for="title">제목</label>
+                            <input type="text" th:field="*{title}" id="title">
+                        </li>
+                        <li>
+                            <label for="content">내용</label>
+                            <input type="text" th:field="*{content}" id="content">
+                        </li>
+<!--                        <li>-->
+<!--                            <label for="deleteY">삭제N</label>-->
+<!--                            <input type="radio" th:checked="${boardDto.deleteYn == 0}" value="0" id="deleteN" name="deleteYn">-->
+<!--                            <label for="deleteN">삭제Y</label>-->
+<!--                            <input type="radio" th:checked="${boardDto.deleteYn == 1}" value="1" id="deleteY" name="deleteYn">-->
+<!--                        </li>-->
+                        <li>
+                            <label for="writer">작성자</label>
+                            <input type="text" th:field="*{writer}" id="writer">
+                        </li>
+                        <li>
+                            <label for="hit">조회수</label>
+                            <input type="text" th:field="*{hit}" id="hit">
+                        </li>
+<!--                        <li>-->
+<!--                            <div class="file_input">-->
+<!--                                첨부파일-->
+<!--&lt;!&ndash;                                <input type="text" th:field="*{saveName}" readonly />&ndash;&gt;-->
+<!--                                <label>-->
+<!--                                    <input type="file" name="files" onchange="selectFile(this);"/>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                        </li>-->
+                        <li>
+                            <input type="button" onclick="itemSubmit()" value="상품 등록">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="script">
+    <script>
+    function itemSubmit(){
+        const form = document.getElementById('itemForm');
+<!--        const files = document.getElementsByName('files');-->
+<!--        const input = document.getElementById('isFile');-->
+<!--        if ( files[0].files.length > 0 ){-->
+<!--            input.setAttribute('value', '1');-->
+<!--        }else{-->
+<!--            input.setAttribute('value', '0');-->
+<!--        }-->
+
+
+        form.action = [[ ${boardDto.id == null} ]] ? '/admin/board/save' : '/admin/board/update';
+        form.submit();
+    }
+
+    // 파일 선택
+    function selectFile(element) {
+
+        const file = element.files[0];
+        const filename = element.closest('.file_input').firstElementChild;
+
+        // 1. 파일 선택 창에서 취소 버튼이 클릭된 경우
+        if ( !file ) {
+            filename.value = '';
+            return false;
+        }
+
+        // 2. 파일 크기가 10MB를 초과하는 경우
+        const fileSize = Math.floor(file.size / 1024 / 1024);
+        if (fileSize > 10) {
+            alert('10MB 이하의 파일로 업로드해 주세요.');
+            filename.value = '';
+            element.value = '';
+            return false;
+        }
+
+        // 3. 파일명 지정
+        filename.value = file.name;
+    }
+    </script>
+</th:block>
+</html>
