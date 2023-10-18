@@ -56,13 +56,13 @@ public class SecurityConfig {
                 .passwordParameter("password")
                 .loginProcessingUrl("/member/login")
                 .defaultSuccessUrl("/")
-                .failureHandler(loginFailHandler())
-                .and()
-                .oauth2Login()
-                .loginPage("/member/login")
-                .successHandler(customerOAuthSuccessHandler())
-                .userInfoEndpoint()
-                .userService(myAuth2UserService());
+                .failureHandler(loginFailHandler());
+//                .and()
+//                .oauth2Login()
+//                .loginPage("/member/login")
+//                .successHandler(customerOAuthSuccessHandler())
+//                .userInfoEndpoint()
+//                .userService(myAuth2UserService());
 
         http.exceptionHandling()
                 .accessDeniedHandler(customAccessDeniedHandler())

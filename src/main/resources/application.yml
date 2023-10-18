@@ -18,14 +18,14 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springdb
+    url: jdbc:mysql://localhost:3306/springnew
     username: root
     password: 1234
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
@@ -36,6 +36,6 @@ spring:
     suffix: .html
     cache: false
     check-template-location: true
-
-  profiles:
-    include: oauth2
+#
+#  profiles:
+#    include: oauth2

@@ -11,8 +11,14 @@
 
 .item{
     flex-basis: 1600px;
+    padding: 100px 0;
 }
 
+.item h2{
+    font-size: 24px;
+    color: #0A2647;
+    text-align: center;
+}
 
 /* category */
 .item .category{

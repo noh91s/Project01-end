@@ -107,7 +107,8 @@ public class BoardController {
             model.addAttribute("search", search);
             return "board/list";
         }
-        return "redirect:/index";
+        model.addAttribute("myUserDetails", myUserDetails);
+        return "board/list";
     }
 
     @GetMapping("/search")

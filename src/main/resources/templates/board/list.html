@@ -35,6 +35,7 @@
                     <li><a th:href="@{/board/write}">글쓰기</a></li>
                 </div>
             </div>
+            <th:block th:if="${not #lists.isEmpty(boardList)}">
             <div class="board-list">
                 <div class="board-list-con">
                     <table border="1">
@@ -79,46 +80,50 @@
                 <!--                </div>-->
             </div>
             <div class="board-paging-con">
-                <div class="paging">
-                    <ul>
-                        <li>
-                            <span th:if="${1==boardList.pageable.pageNumber+1}" class="span0">First</span>
-                            <span th:unless="${1==boardList.pageable.pageNumber+1}">
+                    <div class="paging">
+                        <ul>
+                            <li>
+                                <span th:if="${1==boardList.pageable.pageNumber+1}" class="span0">First</span>
+                                <span th:unless="${1==boardList.pageable.pageNumber+1}">
             <a th:href="@{/board/list(subject=${subject},search=${search},page=0,size=${pSize})}" class="span1">First</a>
           </span>
-                        </li>
-                        <li>
-                            <span th:if="${1==boardList.pageable.pageNumber+1}" class="span0">Pre</span>
-                            <span th:unless="${1==boardList.pageable.pageNumber+1}">
+                            </li>
+                            <li>
+                                <span th:if="${1==boardList.pageable.pageNumber+1}" class="span0">Pre</span>
+                                <span th:unless="${1==boardList.pageable.pageNumber+1}">
             <a th:href="@{/board/list(subject=${subject},search=${search},page=${boardList.pageable.pageNumber-1},size=${pSize})}"
                class="span1">Pre</a>
           </span>
-                        </li>
-                        <li th:each="i: ${#numbers.sequence(startPage, endPage)}" class="block">
-                            <span th:if="${i==boardList.pageable.pageNumber+1}" th:text="${i}" class="now"> </span>
-                            <a th:unless="${i==boardList.pageable.pageNumber+1}"
-                               th:href="@{/board/list(subject=${subject},search=${search},page=${i-1},size=${pSize})}"
-                               th:text="${i}"></a>
-                        </li>
-                        <li>
+                            </li>
+                            <li th:each="i: ${#numbers.sequence(startPage, endPage)}" class="block">
+                                <span th:if="${i==boardList.pageable.pageNumber+1}" th:text="${i}" class="now"> </span>
+                                <a th:unless="${i==boardList.pageable.pageNumber+1}"
+                                   th:href="@{/board/list(subject=${subject},search=${search},page=${i-1},size=${pSize})}"
+                                   th:text="${i}"></a>
+                            </li>
+                            <li>
                                 <span th:if="${boardList.totalPages==boardList.pageable.pageNumber+1}"
                                       class="span0">Next</span>
-                            <span th:unless="${boardList.totalPages==boardList.pageable.pageNumber+1}">
+                                <span th:unless="${boardList.totalPages==boardList.pageable.pageNumber+1}">
             <a th:href="@{/board/list(subject=${subject},search=${search},page=${boardList.pageable.pageNumber+1},size=${pSize})}"
                class="span1">Next</a>
           </span>
-                        </li>
-                        <li>
+                            </li>
+                            <li>
                                 <span th:if="${boardList.totalPages==boardList.pageable.pageNumber+1}"
                                       class="span0">Last</span>
-                            <span th:unless="${boardList.totalPages==boardList.pageable.pageNumber+1}">
+                                <span th:unless="${boardList.totalPages==boardList.pageable.pageNumber+1}">
             <a th:href="@{/board/list(subject=${subject},search=${search},page=${boardList.totalPages-1},size=${pSize})}"
                class="span1">Last</a>
           </span>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </th:block>
+            <th:block th:unless="${not #lists.isEmpty(boardList)}">
+                <h2>게시글 존재하지않음</h2>
+            </th:block>
         </div>
     </div>
 </th:block>

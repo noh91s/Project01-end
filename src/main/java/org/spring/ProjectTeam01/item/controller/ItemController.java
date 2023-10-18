@@ -84,7 +84,8 @@ public class ItemController {
             model.addAttribute("search", search);
             return "item/list";
         }
-        return "redirect:/index";
+        model.addAttribute("myUserDetails", myUserDetails);
+        return "item/list";
     }
 
     @GetMapping("/detail")
