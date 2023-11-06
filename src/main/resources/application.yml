@@ -6,8 +6,8 @@ spring:
   mail:
     host: smtp.gmail.com # 1
     port: 587 # 2              환경변수로 설정할때 아래.
-    username: rlaghdtjd123 # 3  ${mail.username}
-    password: eimfilmkigkwefrj # 4 ${mail.password}
+    username: x # 3  ${mail.username}
+    password: x # 4 ${mail.password}
     properties:
       mail:
         smtp:
