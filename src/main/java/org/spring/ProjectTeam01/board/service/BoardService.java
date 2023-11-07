@@ -37,7 +37,6 @@ public class BoardService {
         });
         if(boardDto.getBoardFile().isEmpty()) {
             Long boardId = boardRepository.save(BoardEntity.builder()
-                    .id(boardDto.getId())
                     .title(boardDto.getTitle())
                     .content(boardDto.getContent())
                     .writer(boardDto.getWriter())
@@ -57,7 +56,6 @@ public class BoardService {
             boardFile.transferTo(new File(savePath));
 
             Long boardId = boardRepository.save(BoardEntity.builder()
-                    .id(boardDto.getId())
                     .title(boardDto.getTitle())
                     .content(boardDto.getContent())
                     .writer(boardDto.getWriter())

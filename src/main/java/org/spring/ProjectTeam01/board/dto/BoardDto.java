@@ -30,6 +30,7 @@ public class BoardDto {
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
     private MultipartFile boardFile;
+    private String email;
 
     public static BoardDto toboardDto(BoardEntity boardEntity) {
         BoardDto boardDto = BoardDto.builder()
